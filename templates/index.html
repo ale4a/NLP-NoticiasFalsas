@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News - Team-pu</title>
+    <link rel = "stylesheet" href = "{{ url_for('static',filename='css/estilos.css') }}">
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header class="header" id="inicio">
+        <img src=" {{ url_for('static',filename='img/logo.jpg') }} " alt="" class="hamburger">
+        <nav class="menu-navegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicio">Servicio</a>
+            <a href="#problemas">Problemas</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="contenedor head">
+            
+            <div class ="center">
+                <h1>NLP Noticias Falsas</h1>
+            
+                <form action="/predict" method="POST">
+                    <div>
+                        <p>Titulo de la noticia</p>
+                        <input type="text" name = "titulo" id="titulo" class = "form-control"placeholder="Ingrese el titulo ">
+                    </div>
+            
+                    <div>
+                        <label for="form103">La noticias</label>
+                        <textarea name="noticia"  class="md-textarea form-control" id = "noticia" rows="4" cols="50"></textarea>
+                        <br/>
+                    </div>
+              
+                    
+                
+                    <input type="submit" class="btn btn-primary" value="predecir">
+                </form>
+                <h2>Predicted: {{pred}}</h2>
+            </div>
+          
+
+            
+        </div>
+    </header>
+    <main>
+        <section class="contenedor" id="servicio">
+            <h2 class="subtitulo">Nuestro Servicio</h2>
+            <div class="contenedor-servicio">
+                <img src=" {{url_for('static',filename = 'img/news_presenter.svg')}}" alt="">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">1</span>¿Cuál es el problema que tratas de resolver?</h3>
+                        <p>En nuestros tiempos la información es más accesible,como nunca antes.Esto genera algunos problemas ya que la información no logra ser clasificada como falsa o verdadera.Cualquiera puede acceder a la información como también generarla sin que exista algún filtro a la hora de publicarla.Esto puede generar reacciones violentas dependiendo del contenido compartido y llegar a generar problemas sociales llegando desbalancear el equilibrio de cualquier país, es esto lo que se intenta resolver.</p>                        
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">2</span>¿A quién/quiénes afecta este problema? No te olvides incluir datos estadísticos.</h3>
+                        <p>Esto afecta a toda la sociedad en general,el acceso a las redes sociales y su información cada vez abarca un mayor público actualmente no es un problema que se pueda ignorar,para exponer un ejemplo uno de los más destacados de este año es el documental de Netflix Titulado el dilema de las redes sociales donde se trata especialmente este tema de la desinformación.Por ejemplo solo en enero,Facebook tuvo más de 2.4000 millones de usuarios activos, YouTube alcanzó los 2.000 millones y WhatsApp los 1.600. 
+                            Estos son millones de datos compartidos sin verificación 
+                            </p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">3</span>¿Por qué es importante resolver el problema?</h3>
+                        <p>Claramente es un tema importante en la que posiblemente la intervención de las empresas que controlan las redes sociales sería mucho más eficaz,sin embargo no se ven este tipo de soluciones por el momento.Por el momento evitar ser alarmistas y verificar la información podría evitar disputas sociales o conflictos.</p>
+                    </div> 
+
+                </div>
+            </div>
+        </section>
+        <section class="gallery" id="portafolio">
+            <div class="contenedor">
+                <h2 class="subtitulo">Galeria de Images</h2>
+                <div class="contenedor-galeria">
+                    <img src="{{url_for('static',filename ='img/periodico2.jpg')}}" alt="" class = "img-galeria" type="text/javascript">
+                    <img src= "{{url_for('static',filename = 'img/bandera2.jpg')}}" alt="" class = "img-galeria" type="text/javascript">
+                    <img src="{{url_for('static',filename = 'img/ai.png')}}" alt="" class = "img-galeria" type="text/javascript">
+                    
+                </div>
+            </div>
+        </section>
+        <section class="imagen-light">
+            <img src="{{url_for('static',filename='img/close.svg')}}" alt="" class="close">
+            <img src="{{url_for('static',filename='img/periodico.jpg')}}" alt="" class="close">
+        </section>
+
+        <section class="contenedor" id="servicio">
+            <h2 class="subtitulo">Nuestro Servicio</h2>
+            <div class="contenedor-servicio">
+                <img src="{{url_for('static',filename='img/informacion.jpg')}}" alt="">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">1</span>2.- ¿Cuál es la idea de tu proyecto?</h3>
+                        <p>Describe la idea de tu proyecto resaltando la propuesta de valor.
+                            Usa la siguiente fórmula para escribir la propuesta de valor.
+                            Pareidolia ofrece a los beneficiarios de manera rápida y simple comprobar las posibilidades de que la noticia que acabas de leer sea falsa esto evitará hacer suposiciones erróneas sobre la situación actual o un tema en particular 
+                            </p>
+                        
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">2</span>¿Cómo tu proyecto resuelve el problema?
+                        </h3>
+                        <p>Decir que resuelve el problema sería esperar mucho pero podría ofrecer una ayuda a la momento de comprobar la información.
+                            </p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">3</span>¿Cuál es tu ventaja? </h3>
+                        <p>Las ventajas anteriormente expuestas son las que se pueden extraer a simple vista de implementar esta idea  son la comprobación de las noticias para evitar malos entendidos y posibles conflictos.
+                        </p>
+                    </div> 
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contenedor" id="problemas">
+            <h2 class="subtitulo">Nuestro Equipo </h2>
+            <section class="experts">
+                <div class="cont-expert">
+                    <img src=" {{url_for('static',filename='img/yurika.png')}} " alt="">
+                    <h3 class="n-expert">YURIKA MACUSAYA AGUILAR</h3>
+                </div>
+                <div class="cont-expert">
+                        
+                    <img src=" {{url_for('static',filename='img/mikaela.png')}} " alt="">
+                    <h3 class="n-expert">MICAELA JHOSELYN SAENZ MOLINA</h3>
+                </div>
+                <div class="cont-expert">
+                    <img src="{{url_for('static',filename='img/alejandro.png')}} " alt="">
+                    <h3 class="n-expert">ALFREDO ALEJANDRO ALVAREZ ACUÑA</h3>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer id="contacto">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h2 class="brand">Team-pu</h2>
+                <p>Somos expertos detectando noticias</p>
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/alejandroa.alvareza/" class = "social-media-icon">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="https://twitter.com/Alejand56492040" class = "social-media-icon">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+                <a href="https://www.instagram.com/alejandroa.alvareza" class = "social-media-icon">
+                    <i class='bx bxl-instagram' ></i>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+    
+    
+    <script src = "{{url_for('static',filename = 'js/menu.js')}}"></script>
+    <script src = "{{url_for('static',filename = 'js/lightbox.js')}}"></script>
+    
+    
+</body>
+</html>
